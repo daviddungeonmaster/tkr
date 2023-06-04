@@ -12,16 +12,22 @@
         android:theme="@style/Theme.TkrTpuShop"
         tools:targetApi="31">
         <activity
-            android:name=".ui.Admin.AdminCategoryActivity"
+            android:name=".Users.HomeActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.Admin.AdminAddNewProductActivity"
+            android:name=".Admin.AdminCategoryActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.Users.HomeActivity"
+            android:name=".Admin.AdminAddNewProductActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.Users.HomeActivity$MainActivity"
+            android:name=".LoginActivity"
+            android:exported="false" />
+        <activity
+            android:name=".RegisterActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
