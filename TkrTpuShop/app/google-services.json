@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "687476223021",
+    "firebase_url": "https://myshop-492cd-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "myshop-492cd",
+    "storage_bucket": "myshop-492cd.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:687476223021:android:0d913e339081a56494dca4",
+        "android_client_info": {
+          "package_name": "com.tkr.tkrtpushop"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "687476223021-bo8skjl45id8cq4jqilj1q5cdpob6qud.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAMqzDZRV8BCTvFAmv-2llbXSO-uaFCoSM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "687476223021-bo8skjl45id8cq4jqilj1q5cdpob6qud.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
