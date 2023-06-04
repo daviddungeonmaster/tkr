@@ -20,7 +20,6 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.tkr.tkrtpushop.Admin.AdminCategoryActivity;
 import com.tkr.tkrtpushop.Model.Users;
-import com.tkr.tkrtpushop.Users.HomeActivity;
 
 public class LoginActivity extends AppCompatActivity
 {
