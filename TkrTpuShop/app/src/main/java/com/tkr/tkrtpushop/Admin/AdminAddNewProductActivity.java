@@ -186,7 +186,7 @@ public class AdminAddNewProductActivity extends AppCompatActivity {
     private void OpenGallery() {
         Intent galleryIntent = new Intent();
         galleryIntent.setAction(Intent.ACTION_GET_CONTENT);
-        galleryIntent.setType("image/");
+        galleryIntent.setType("image/*");
         startActivityForResult(galleryIntent,GALLERYPICTURE);
     }
 
