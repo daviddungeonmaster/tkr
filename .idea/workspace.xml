@@ -4,7 +4,18 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="97710622-7d75-428f-acd3-489da62f2db4" name="Changes" comment="" />
+    <list default="true" id="97710622-7d75-428f-acd3-489da62f2db4" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/tkr.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/tkr.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TkrTpuShop/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/TkrTpuShop/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TkrTpuShop/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/TkrTpuShop/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TkrTpuShop/app/src/main/java/com/tkr/tkrtpushop/Admin/AdminAddNewProductActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/TkrTpuShop/app/src/main/java/com/tkr/tkrtpushop/Admin/AdminAddNewProductActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TkrTpuShop/app/src/main/java/com/tkr/tkrtpushop/LoginActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/TkrTpuShop/app/src/main/java/com/tkr/tkrtpushop/LoginActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TkrTpuShop/app/src/main/java/com/tkr/tkrtpushop/Prevalent/Prevalent.java" beforeDir="false" afterPath="$PROJECT_DIR$/TkrTpuShop/app/src/main/java/com/tkr/tkrtpushop/Prevalent/Prevalent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TkrTpuShop/app/src/main/java/com/tkr/tkrtpushop/Users/HomeActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/TkrTpuShop/app/src/main/java/com/tkr/tkrtpushop/Users/HomeActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TkrTpuShop/app/src/main/java/com/tkr/tkrtpushop/Users/SettingsActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/TkrTpuShop/app/src/main/java/com/tkr/tkrtpushop/Users/SettingsActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TkrTpuShop/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/TkrTpuShop/build.gradle" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -27,7 +38,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.cidr.known.project.marker": "true",
     "cidr.known.project.marker": "true",
-    "last_opened_file_path": "E:/tkr/TkrTpuShop"
+    "last_opened_file_path": "D:/ucheba/tkr/TkrTpuShop"
   }
 }]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
