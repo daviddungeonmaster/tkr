@@ -15,6 +15,8 @@ public class ProductViewHolder extends RecyclerView.ViewHolder implements View.O
     public ImageView imageView;
     public ItemClickListner listner;
 
+    String  categoryName;
+
 
     public ProductViewHolder(View itemView)
     {
@@ -37,4 +39,5 @@ public class ProductViewHolder extends RecyclerView.ViewHolder implements View.O
     {
         listner.onClick(view, getAdapterPosition(), false);
     }
+
 }

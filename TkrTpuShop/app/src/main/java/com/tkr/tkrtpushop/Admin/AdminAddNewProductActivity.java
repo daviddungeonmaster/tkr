@@ -36,7 +36,7 @@ import java.util.HashMap;
 public class AdminAddNewProductActivity extends AppCompatActivity {
     private String categoryName, Description, Price, ProductName, saveCurrentDate, saveCurrentTime, productRandomKey;
     private ImageView productImage;
-    private EditText productName, productDescription, productPrice;
+    private EditText productName1, productDescription, productPrice;
     private Button addNewProductButton;
     private String downloadImageUrl;
     private Uri ImageUri;
@@ -75,7 +75,7 @@ public class AdminAddNewProductActivity extends AppCompatActivity {
     private void ValidateProductData() {
         Description = productDescription.getText().toString();
         Price = productPrice.getText().toString();
-        ProductName = productName.getText().toString();
+        ProductName = productName1.getText().toString();
 
         if(ImageUri == null){
             Toast.makeText(this, "Добавьте изображение товара.", Toast.LENGTH_SHORT).show();
@@ -158,8 +158,8 @@ public class AdminAddNewProductActivity extends AppCompatActivity {
         productMap.put("description", Description);
         productMap.put("image", downloadImageUrl);
         productMap.put("category", categoryName);
-        productMap.put("price", productPrice);
-        productMap.put("name", productName);
+        productMap.put("price", Price);
+        productMap.put("name", ProductName);
 
         ProductsRef.child(productRandomKey).updateChildren(productMap).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
@@ -203,7 +203,7 @@ public class AdminAddNewProductActivity extends AppCompatActivity {
     {
         categoryName = getIntent().getExtras().get("category").toString();
         productImage = findViewById(R.id.select_product_image);
-        productName = findViewById(R.id.product_name);
+        productName1 = findViewById(R.id.product_name);
         productDescription = findViewById(R.id.product_description);
         productPrice = findViewById(R.id.product_price);
         addNewProductButton = findViewById(R.id.btn_add_new_product);

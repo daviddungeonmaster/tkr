@@ -1,12 +1,17 @@
 package com.tkr.tkrtpushop.Users;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -15,7 +20,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.navigation.ui.AppBarConfiguration;
+
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -26,35 +31,62 @@ import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.squareup.picasso.Picasso;
 import com.tkr.tkrtpushop.LoginActivity;
 import com.tkr.tkrtpushop.Model.Products;
+
 import com.tkr.tkrtpushop.Prevalent.Prevalent;
 import com.tkr.tkrtpushop.R;
+import com.tkr.tkrtpushop.ViewHolder.Category;
+import com.tkr.tkrtpushop.ViewHolder.CategoryAdapter;
 import com.tkr.tkrtpushop.ViewHolder.ProductViewHolder;
 
 import org.jetbrains.annotations.NotNull;
+
+
+import java.util.ArrayList;
+import java.util.List;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 import io.paperdb.Paper;
 
 public class HomeActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
-    private AppBarConfiguration mAppBarConfiguration;
+
     DatabaseReference ProductsRef;
-    private RecyclerView recyclerView;
+    RecyclerView recyclerView;
+    RecyclerView categoryRecycler;
     RecyclerView.LayoutManager layoutManager;
+
+    CategoryAdapter categoryAdapter;
+
+    Button ButtonComTomPol, ButtonMissionEng, ButtonTHC;
+
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+
+
+
         setContentView(R.layout.activity_home);
+
+
+
 
         ProductsRef = FirebaseDatabase.getInstance().getReference().child("Products");
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         toolbar.setTitle("Меню");
         setSupportActionBar(toolbar);
+
+
+
+
 
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -84,6 +116,8 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         TextView userNameTextView = headerView.findViewById(R.id.user_profile_name);
         CircleImageView profileImageView = headerView.findViewById(R.id.user_profile_image);
 
+        userNameTextView.setText(Prevalent.currentOnlineUser.getName());
+
 
 
 
@@ -93,20 +127,102 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         recyclerView.setLayoutManager(layoutManager);
     }
 
-    @Override
+
+
+
+
+    public static void showProductsByCategory(int category){
+
+    }
+    private FirebaseRecyclerAdapter<Products, ProductViewHolder> adapter;
+    private String categoryName = "";
+
+
+    private String defaultCategory = null; // категория по умолчанию - пустая строка
+
+
+
+
+
+    public void filterCategory(final String category) {
+        Query query;
+        if (category.equals(defaultCategory)) {
+            // если выбрана категория по умолчанию, фильтрация не производится
+            query = ProductsRef;
+        } else {
+            // в противном случае выбираются товары из указанной категории
+            query = ProductsRef.orderByChild("category").equalTo(category);
+        }
+
+        FirebaseRecyclerOptions<Products> options = new FirebaseRecyclerOptions.Builder<Products>()
+                .setQuery(query, Products.class)
+                .build();
+
+        adapter.updateOptions(options);
+        adapter.notifyDataSetChanged(); // обновление RecyclerView
+    }
+
+
+
+        @Override
     protected void onStart() {
         super.onStart();
+
+
+
+        Button buttonColTomPol = findViewById(R.id.buttonColTomPol);
+
+        buttonColTomPol.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                categoryName = "ColTomPol";
+                filterCategory(categoryName);
+
+            }
+        });
+
+        Button buttonMissionEng = findViewById(R.id.buttonMissionEng);
+        buttonMissionEng.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                categoryName = "MissionEng";
+                filterCategory(categoryName);
+            }
+        });
+
+        Button buttonTHC = findViewById(R.id.buttonTHC);
+        buttonTHC.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                categoryName = "THC";
+                filterCategory(categoryName);
+            }
+        });
+
+
+
+        // Определяем FirebaseRecyclerOptions и FirebaseRecyclerAdapter с категорией по умолчанию
+            Query query = ProductsRef;
+
+
 
         FirebaseRecyclerOptions<Products> options = new FirebaseRecyclerOptions.Builder<Products>()
                 .setQuery(ProductsRef, Products.class).build();
 
-        FirebaseRecyclerAdapter<Products, ProductViewHolder> adapter = new FirebaseRecyclerAdapter<Products, ProductViewHolder>(options) {
+        adapter = new FirebaseRecyclerAdapter<Products, ProductViewHolder>(options) {
             @Override
             protected void onBindViewHolder(@NonNull @NotNull ProductViewHolder holder, int i, @NonNull @NotNull Products model) {
-                holder.txtProductName.setText(model.getProductName());
+
+
+                if (model.getCategory().equals(categoryName)) {
+                holder.txtProductName.setText(model.getName());
                 holder.txtProductDescription.setText(model.getDescription());
-                holder.txtProductPrice.setText("Стоимость = " + model.getPrice() + " рублей");
-                Picasso.get().load(model.getImage()).into(holder.imageView);
+                holder.txtProductPrice.setText("Стоимость - " + model.getPrice() + " рублей");
+                String url1 = model.getImage();
+                Picasso.get().load(url1).into(holder.imageView);}
+
+
+
             }
 
             @NonNull
@@ -114,13 +230,22 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
             @Override
             public ProductViewHolder onCreateViewHolder(@NonNull @NotNull ViewGroup parent, int viewType) {
                 View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.product_items_layout, parent, false);
-                ProductViewHolder holder = new ProductViewHolder(view);
-                return holder;
+                return new ProductViewHolder(view);
             }
         };
 
-        recyclerView.setAdapter(adapter);
-        adapter.startListening();
+            new CountDownTimer(2000, 1000) {
+                @Override
+                public void onTick(long l) {
+                }
+
+                @Override
+                public void onFinish() {
+                    recyclerView.setAdapter(adapter);
+                    adapter.startListening();
+                    filterCategory(categoryName);
+                }
+            }.start();
 
     }
 

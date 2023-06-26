@@ -1,16 +1,23 @@
 package com.tkr.tkrtpushop.Model;
 
 public class Products {
-    private String ProductName, description, price, image, category, pid, date, time;
+    private String name;
+    private String Description;
+    private String Price;
+    private String image;
+    private String category;
+    private String pid;
+    private String date;
+    private String time;
 
     public Products(){
 
     }
 
-    public Products(String ProductName, String description, String price, String image, String category, String pid, String date, String time) {
-        this.ProductName = ProductName;
-        this.description = description;
-        this.price = price;
+    public Products(String name, String description, String price, String image, String category, String pid, String date, String time) {
+        this.name = name;
+        this.Description = description;
+        this.Price = price;
         this.image = image;
         this.category = category;
         this.pid = pid;
@@ -18,28 +25,28 @@ public class Products {
         this.time = time;
     }
 
-    public String getProductName() {
-        return ProductName;
+    public String getName() {
+        return name;
     }
 
-    public void setProductName(String ProductName) {
-        this.ProductName = ProductName;
+    public void setProductName(String name) {
+        this.name = name;
     }
 
     public String getDescription() {
-        return description;
+        return Description;
     }
 
     public void setDescription(String description) {
-        this.description = description;
+        this.Description = description;
     }
 
     public String getPrice() {
-        return price;
+        return Price;
     }
 
     public void setPrice(String price) {
-        this.price = price;
+        this.Price = price;
     }
 
     public String getImage() {
@@ -47,6 +54,7 @@ public class Products {
     }
 
     public void setImage(String image) {
+
         this.image = image;
     }
 

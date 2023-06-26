@@ -10,6 +10,8 @@ import android.widget.ImageView;
 
 import com.tkr.tkrtpushop.R;
 
+import java.util.Locale;
+
 public class AdminCategoryActivity extends AppCompatActivity {
     private Button ColTomPol , MissionEng , THC;
 
@@ -24,8 +26,9 @@ public class AdminCategoryActivity extends AppCompatActivity {
             @Override
             public void onClick(View view)
             {
-                Intent intent = new Intent(AdminCategoryActivity.this, AdminAddNewProductActivity.class);
-                intent.putExtra("category", "ColTomPol");
+                Intent intentAddNew = new Intent(AdminCategoryActivity.this, AdminAddNewProductActivity.class);
+                intentAddNew.putExtra("category", "ColTomPol");
+                startActivity(intentAddNew);
             }
         });
         MissionEng.setOnClickListener(new View.OnClickListener() {
@@ -41,8 +44,9 @@ public class AdminCategoryActivity extends AppCompatActivity {
             @Override
             public void onClick(View view)
             {
-                Intent intent = new Intent(AdminCategoryActivity.this, AdminAddNewProductActivity.class);
-                intent.putExtra("category", "THC");
+                Intent intentAddNew = new Intent(AdminCategoryActivity.this, AdminAddNewProductActivity.class);
+                intentAddNew.putExtra("category", "THC");
+                startActivity(intentAddNew);
             }
         });
     }

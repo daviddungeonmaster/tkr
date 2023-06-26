@@ -1,0 +1,139 @@
+@startuml
+class com.tkr.tkrtpushop.ui.Admin.AdminAddNewProductActivity {
+# void onCreate(Bundle)
+}
+class com.tkr.tkrtpushop.ui.Admin.AdminCategoryActivity {
+# void onCreate(Bundle)
+}
+class com.tkr.tkrtpushop.MainActivity {
+- Button joinButton
+# void onCreate(Bundle)
+}
+class com.tkr.tkrtpushop.Users.HomeActivity {
+- AppBarConfiguration mAppBarConfiguration
+~ DatabaseReference ProductsRef
+- RecyclerView recyclerView
+~ RecyclerView.LayoutManager layoutManager
+# void onCreate(Bundle)
+# void onStart()
++ void onBackPressed()
++ boolean onCreateOptionsMenu(Menu)
++ boolean onNavigationItemSelected(MenuItem)
+}
+class com.tkr.tkrtpushop.RegisterActivity {
+- Button registerBtn
+- EditText usernameInput
+- ProgressDialog loadingBar
+# void onCreate(Bundle)
+- void CreateAccount()
+- void ValidatePhone(String,String,String)
+}
+class com.tkr.tkrtpushop.Admin.AdminAddNewProductActivity {
+- String categoryName
+- ImageView productImage
+- EditText productName1
+- Button addNewProductButton
+- String downloadImageUrl
+- Uri ImageUri
+- StorageReference ProductImageRef
+- {static} int GALLERYPICTURE
+- DatabaseReference ProductsRef
+- ProgressDialog loadingBar
+# void onCreate(Bundle)
+- void ValidateProductData()
+- void StoreProductInformation()
+- void SaveProductInfoToDatabase()
+- void OpenGallery()
+# void onActivityResult(int,int,Intent)
+- void init()
+}
+class com.tkr.tkrtpushop.Model.Users {
+- String name
++ String getName()
++ void setName(String)
++ String getPhone()
++ void setPhone(String)
++ String getPassword()
++ void setPassword(String)
+}
+class com.tkr.tkrtpushop.Model.Products {
+- String ProductName
++ String getProductName()
++ void setProductName(String)
++ String getDescription()
++ void setDescription(String)
++ String getPrice()
++ void setPrice(String)
++ String getImage()
++ void setImage(String)
++ String getCategory()
++ void setCategory(String)
++ String getPid()
++ void setPid(String)
++ String getDate()
++ void setDate(String)
++ String getTime()
++ void setTime(String)
+}
+class com.tkr.tkrtpushop.Users.SettingsActivity {
+- CircleImageView profileImageView
+- EditText fullNameEditText
+- TextView saveTextButton
+- Uri imageUri
+- String checker
+- StorageReference storageProfilePictureRef
+- StorageTask uploadTask
+- {static} int GALLERYPICTURE
+# void onCreate(Bundle)
+- void OpenGallery()
+- void userInfoDisplay(CircleImageView,EditText,EditText,EditText)
+# void onActivityResult(int,int,Intent)
+- void userInfoSaved()
+- void uploadImage()
+- void updateOnlyUserInfo()
+}
+class com.tkr.tkrtpushop.ViewHolder.ProductViewHolder {
++ TextView txtProductName
++ ImageView imageView
++ ItemClickListner listner
++ void setItemClickListner(ItemClickListner)
++ void onClick(View)
+}
+class com.tkr.tkrtpushop.Admin.AdminCategoryActivity {
+- Button ColTomPol
+# void onCreate(Bundle)
+- void init()
+}
+interface com.tkr.tkrtpushop.Interface.ItemClickListner {
+~ void onClick(View,int,boolean)
+}
+class com.tkr.tkrtpushop.LoginActivity {
+- Button loginBtn
+- EditText usernameInput
+- ProgressDialog loadingBar
+- TextView AdminLink
+- String parentDbName
+# void onCreate(Bundle)
+- void loginUser()
+- void ValidateUser(String,String)
+}
+class com.tkr.tkrtpushop.Prevalent.Prevalent {
++ {static} Users currentOnlineUser
++ {static} String UserPhoneKey
++ {static} String UserPasswordKey
+}
+
+
+androidx.appcompat.app.AppCompatActivity <|-- com.tkr.tkrtpushop.ui.Admin.AdminAddNewProductActivity
+androidx.appcompat.app.AppCompatActivity <|-- com.tkr.tkrtpushop.ui.Admin.AdminCategoryActivity
+androidx.appcompat.app.AppCompatActivity <|-- com.tkr.tkrtpushop.MainActivity
+com.tkr.tkrtpushop.Users.OnNavigationItemSelectedListener <|.. com.tkr.tkrtpushop.Users.HomeActivity
+androidx.appcompat.app.AppCompatActivity <|-- com.tkr.tkrtpushop.Users.HomeActivity
+androidx.appcompat.app.AppCompatActivity <|-- com.tkr.tkrtpushop.RegisterActivity
+androidx.appcompat.app.AppCompatActivity <|-- com.tkr.tkrtpushop.Admin.AdminAddNewProductActivity
+androidx.appcompat.app.AppCompatActivity <|-- com.tkr.tkrtpushop.Users.SettingsActivity
+com.tkr.tkrtpushop.ViewHolder.OnClickListener <|.. com.tkr.tkrtpushop.ViewHolder.ProductViewHolder
+com.tkr.tkrtpushop.ViewHolder.ViewHolder <|-- com.tkr.tkrtpushop.ViewHolder.ProductViewHolder
+androidx.appcompat.app.AppCompatActivity <|-- com.tkr.tkrtpushop.Admin.AdminCategoryActivity
+androidx.appcompat.app.AppCompatActivity <|-- com.tkr.tkrtpushop.LoginActivity
+@enduml
